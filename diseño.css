@@ -19,7 +19,10 @@ h1, h2, h3 {
 }
 
 /* Contenedor principal */
-#productos, table {
+#productos {
+    display: grid; /* Cambiamos a grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
+    gap: 20px; /* Espacio entre los artículos */
     max-width: 1200px;
     margin: 20px auto;
     padding: 10px;
@@ -30,36 +33,34 @@ h1, h2, h3 {
 }
 
 /* Estilo de los productos */
-#productos div {
-    width: calc(33.33% - 20px);
-    margin: 10px;
+.producto {
+    background-color: #fdfdfd;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
-    background-color: #fdfdfd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#productos div img {
+.producto img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-#productos div h2 {
+.producto h3 {
     font-size: 1.2em;
     margin: 10px 0;
 }
 
-#productos div p {
+.producto p {
     font-size: 0.9em;
     color: #555;
     margin: 5px 0;
 }
 
-#productos div form button {
+.producto form button {
     background: #007bff;
     color: #fff;
     border: none;
@@ -69,112 +70,24 @@ h1, h2, h3 {
     transition: background 0.3s ease-in-out;
 }
 
-#productos div form button:hover {
+.producto form button:hover {
     background: #0056b3;
-}
-
-/* Tabla de carrito */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table thead {
-    background-color: #007bff;
-    color: white;
-    text-align: left;
-}
-
-table th, table td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-}
-
-table tbody tr:hover {
-    background-color: #f1f1f1;
-}
-
-h2 {
-    padding: 15px 0;
-    color: #007bff;
-}
-
-/* Botones de acción */
-button {
-    background: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-}
-
-button:hover {
-    background: #c82333;
-}
-
-/* Enlace de volver */
-h4 a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 1.1em;
-    display: inline-block;
-    margin: 20px auto;
-    text-align: center;
-    transition: color 0.3s ease-in-out;
-}
-
-h4 a:hover {
-    color: #0056b3;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
-    #productos div {
-        width: calc(50% - 20px);
+    #productos {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas cuando el ancho es menor */
     }
 }
 
 @media (max-width: 480px) {
-    #productos div {
-        width: 100%;
-    }
-
-    table thead {
-        display: none;
-    }
-
-    table tr {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    table td {
-        display: block;
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        text-align: left;
-        font-weight: bold;
+    #productos {
+        grid-template-columns: 1fr; /* Una columna en dispositivos pequeños */
     }
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-}
+/* Estilo para el header */
 header {
     display: flex;
     justify-content: space-between;
@@ -184,14 +97,55 @@ header {
     top: 0; /* Posiciona el header en la parte superior */
     left: 0; /* Asegura que esté alineado a la izquierda */
     width: 100%; /* Hace que el header abarque todo el ancho */
-     z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
-    background-color: rgb(232, 71, 71); /* Opcional: establece un color de fondo para el header */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: agrega una sombra para diferenciarlo del contenido */
-    
-}
-.productos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
-    gap: 20px; /* Espacio entre los artículos */
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+    background-color: rgb(232, 71, 71); /* Color de fondo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para diferenciarlo del contenido */
+    padding: 10px 20px;
+    margin: 0;
 }
 
+/* Estilo del logo */
+header .logo h1 {
+    color: white;
+    font-size: 1.5em;
+    margin: 0;
+    text-shadow: 1px 1px #000; /* Opcional: sombra en el texto */
+}
+
+/* Estilo para la navegación */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+header nav ul li {
+    margin: 0;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: #fdd835; /* Cambia a un color amarillo en hover */
+}
+
+/* Responsividad para el header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -14,7 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($usuario && password_verify($contraseña, $usuario['contraseña'])) {
+        // Guardar ID y nombre en la sesión
         $_SESSION['usuario_id'] = $usuario['id'];
+        $_SESSION['nombre_usuario'] = $usuario['nombre']; // Guardar el nombre del usuario
         header('Location: index.php');
         exit;
     } else {
@@ -33,23 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-container">
         <h1>Inicio de Sesión</h1>
-        <!-- Mostrar mensaje de error si existe -->
         <?php if (!empty($error)): ?>
             <p class="error-message"><?= htmlspecialchars($error) ?></p>
         <?php endif; ?>
-
-        <!-- Formulario de inicio de sesión -->
         <form action="login.php" method="POST">
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
-
             <label for="contraseña">Contraseña:</label>
             <input type="password" id="contraseña" name="contraseña" placeholder="••••••••" required>
-
             <button type="submit">Iniciar Sesión</button>
         </form>
-
-        <!-- Botón para registrarse -->
         <p class="register-link">¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
     </div>
 </body>
