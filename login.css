@@ -1,0 +1,164 @@
+/* Fondo general */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-image: url(https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2025/01/pokemon-tcg-4279645.jpg?tf=1200x);
+}
+
+/* Contenedor principal */
+.login-container {
+    width: 350px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #333;
+}
+
+/* Título */
+.login-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Etiquetas */
+label {
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Campos de entrada */
+input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+}
+
+/* Botón de inicio de sesión */
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ca2020;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #1a5db8;
+    transform: translateY(-2px);
+}
+
+/* Mensaje de error */
+.error-message {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Enlace para registrarse */
+.register-link {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.register-link a {
+    color: #2575fc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.register-link a:hover {
+    color: #1a5db8;
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+}
+/* Header */
+header {
+    background-color: #222;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* Productos */
+#productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    width: 220px;
+    border-radius: 8px;
+    text-align: center;
+}
